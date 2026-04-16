@@ -236,7 +236,7 @@ See Non-Functional Requirements for specific measurable targets.
 ### User Input Handling
 
 - **FR9:** System prevents creation of empty or whitespace-only todos
-- **FR10:** System handles long todo text without breaking layout
+- **FR10:** System handles todo text up to 500 characters without breaking layout
 - **FR11:** System handles rapid successive todo operations without duplication or data loss
 
 ### Visual Feedback & State Communication
@@ -245,7 +245,7 @@ See Non-Functional Requirements for specific measurable targets.
 - **FR13:** System displays an empty state when no todos exist
 - **FR14:** System displays a loading state while fetching data from the backend
 - **FR15:** System displays an error state when the backend is unavailable or a request fails
-- **FR16:** System reflects user actions (create, complete, delete) immediately in the UI via optimistic updates
+- **FR16:** System reflects user actions (create, complete, delete) immediately in the UI before server confirmation
 
 ### API Operations
 
@@ -277,7 +277,7 @@ See Non-Functional Requirements for specific measurable targets.
 - Visible focus indicators on all focusable elements
 - Semantic HTML: proper heading hierarchy, button elements for actions, labels on inputs
 - Sufficient color contrast ratio (minimum 4.5:1) for text and UI elements
-- Screen reader-friendly markup where achievable without significant effort
+- ARIA labels on all form controls and interactive elements
 
 ### Reliability
 
