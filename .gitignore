@@ -1,0 +1,31 @@
+# ===========================================
+# BMad Method — installer-generated files
+# Recreatable via: npx bmad-method install
+# ===========================================
+
+# Installed skills (from npm package)
+.github/skills/
+
+# Assembled manifests & config registry
+_bmad/_config/
+
+# Generated module help files
+_bmad/*/module-help.csv
+
+# Scaffold workflow folders (empty, recreated by installer)
+_bmad/bmm/1-analysis/
+_bmad/bmm/2-plan-workflows/
+_bmad/bmm/3-solutioning/
+_bmad/bmm/4-implementation/
+
+# ===========================================
+# OS / Editor
+# ===========================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Node (if applicable later)
+node_modules/
