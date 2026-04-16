@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trainingnf - Design Direction Mockups</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom animations and utilities */
+        .mockup-card {
+            transition: all 0.3s ease;
+        }
+        .mockup-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .todo-item {
+            transition: all 0.15s ease;
+        }
+        .todo-item:hover {
+            background-color: rgb(248 250 252);
+        }
+        .checkbox-custom {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #cbd5e1;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .checkbox-custom:checked {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        }
+        .strikethrough {
+            text-decoration: line-through;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 py-12">
+    <div class="max-w-7xl mx-auto px-6">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-medium text-slate-900 mb-3">trainingnf Design Directions</h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                Explore 6 different visual approaches for the todo app. Each uses our established foundation 
+                (Slate/Indigo palette, system fonts) but creates a distinct feel through layout, spacing, and component styling.
+            </p>
+            <p class="text-sm text-slate-500 mt-4">Click or hover to interact with each mockup</p>
+        </div>
+
+        <!-- Design Directions Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            
+            <!-- Direction 1: Minimal & Airy -->
+            <div class="mockup-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-indigo-600 text-white px-6 py-4">
+                    <h3 class="text-xl font-medium">Direction 1: Minimal & Airy</h3>
+                    <p class="text-sm text-indigo-100 mt-1">Maximum whitespace, borderless aesthetic</p>
+                </div>
+                <div class="p-8 bg-slate-50 min-h-[500px]">
+                    <div class="max-w-md mx-auto">
+                        <input type="text" placeholder="What needs to be done?" 
+                               class="w-full px-4 py-4 text-base border-0 border-b-2 border-slate-200 bg-transparent focus:border-indigo-500 outline-none transition-colors mb-8">
+                        
+                        <ul class="space-y-6">
+                            <li class="todo-item flex items-center gap-4 py-3">
+                                <input type="checkbox" class="checkbox-custom">
+                                <span class="text-base text-slate-900">Buy groceries</span>
+                            </li>
+                            <li class="todo-item flex items-center gap-4 py-3">
+                                <input type="checkbox" class="checkbox-custom" checked>
+                                <span class="text-base strikethrough">Reply to email</span>
+                            </li>
+                            <li class="todo-item flex items-center gap-4 py-3">
+                                <input type="checkbox" class="checkbox-custom">
+                                <span class="text-base text-slate-900">Fix bike tire</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direction 2: Card-Based -->
+            <div class="mockup-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-slate-800 text-white px-6 py-4">
+                    <h3 class="text-xl font-medium">Direction 2: Card-Based</h3>
+                    <p class="text-sm text-slate-300 mt-1">Each todo as a distinct card with subtle shadows</p>
+                </div>
+                <div class="p-8 bg-slate-50 min-h-[500px]">
+                    <div class="max-w-md mx-auto">
+                        <div class="bg-white rounded-lg shadow-sm border border-slate-200 p-4 mb-6">
+                            <input type="text" placeholder="What needs to be done?" 
+                                   class="w-full text-base outline-none">
+                        </div>
+                        
+                        <ul class="space-y-3">
+                            <li class="bg-white rounded-lg shadow-sm border border-slate-200 p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
+                                <input type="checkbox" class="checkbox-custom">
+                                <span class="text-base text-slate-900 flex-1">Buy groceries</span>
+                                <button class="text-slate-400 hover:text-red-600 text-sm">✕</button>
+                            </li>
+                            <li class="bg-white rounded-lg shadow-sm border border-slate-200 p-4 flex items-center gap-3 opacity-60">
+                                <input type="checkbox" class="checkbox-custom" checked>
+                                <span class="text-base strikethrough flex-1">Reply to email</span>
+                                <button class="text-slate-400 hover:text-red-600 text-sm">✕</button>
+                            </li>
+                            <li class="bg-white rounded-lg shadow-sm border border-slate-200 p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
+                                <input type="checkbox" class="checkbox-custom">
+                                <span class="text-base text-slate-900 flex-1">Fix bike tire</span>
+                                <button class="text-slate-400 hover:text-red-600 text-sm">✕</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direction 3: Dense & Efficient -->
+            <div class="mockup-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-slate-700 text-white px-6 py-4">
+                    <h3 class="text-xl font-medium">Direction 3: Dense & Efficient</h3>
+                    <p class="text-sm text-slate-300 mt-1">Compact spacing, keyboard-first, power user feel</p>
+                </div>
+                <div class="p-6 bg-white min-h-[500px]">
+                    <div class="max-w-md mx-auto border border-slate-200 rounded-lg">
+                        <div class="border-b border-slate-200 p-3">
+                            <input type="text" placeholder="Add todo..." 
+                                   class="w-full text-sm outline-none placeholder:text-slate-400">
+                        </div>
+                        
+                        <ul>
+                            <li class="border-b border-slate-100 px-3 py-2 flex items-center gap-2 hover:bg-slate-50">
+                                <input type="checkbox" class="checkbox-custom scale-75">
+                                <span class="text-sm text-slate-900 flex-1">Buy groceries</span>
+                                <button class="text-slate-400 hover:text-red-600 text-xs px-1">del</button>
+                            </li>
+                            <li class="border-b border-slate-100 px-3 py-2 flex items-center gap-2 hover:bg-slate-50 opacity-60">
+                                <input type="checkbox" class="checkbox-custom scale-75" checked>
+                                <span class="text-sm strikethrough flex-1">Reply to email</span>
+                                <button class="text-slate-400 hover:text-red-600 text-xs px-1">del</button>
+                            </li>
+                            <li class="border-b border-slate-100 px-3 py-2 flex items-center gap-2 hover:bg-slate-50">
+                                <input type="checkbox" class="checkbox-custom scale-75">
+                                <span class="text-sm text-slate-900 flex-1">Fix bike tire</span>
+                                <button class="text-slate-400 hover:text-red-600 text-xs px-1">del</button>
+                            </li>
+                            <li class="border-b border-slate-100 px-3 py-2 flex items-center gap-2 hover:bg-slate-50">
+                                <input type="checkbox" class="checkbox-custom scale-75">
+                                <span class="text-sm text-slate-900 flex-1">Call dentist</span>
+                                <button class="text-slate-400 hover:text-red-600 text-xs px-1">del</button>
+                            </li>
+                        </ul>
+                        
+                        <div class="px-3 py-2 text-xs text-slate-500 bg-slate-50">
+                            4 total • 1 completed
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direction 4: Soft & Approachable -->
+            <div class="mockup-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-indigo-500 text-white px-6 py-4">
+                    <h3 class="text-xl font-medium">Direction 4: Soft & Approachable</h3>
+                    <p class="text-sm text-indigo-100 mt-1">Rounded corners, soft shadows, friendly feel</p>
+                </div>
+                <div class="p-8 bg-gradient-to-b from-indigo-50 to-slate-50 min-h-[500px]">
+                    <div class="max-w-md mx-auto">
+                        <div class="bg-white rounded-2xl shadow-md p-4 mb-6">
+                            <input type="text" placeholder="What needs to be done?" 
+                                   class="w-full text-base outline-none">
+                            <button class="mt-2 w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors text-sm font-medium">
+                                Add Todo
+                            </button>
+                        </div>
+                        
+                        <ul class="space-y-3">
+                            <li class="bg-white rounded-xl shadow-sm p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
+                                <input type="checkbox" class="checkbox-custom rounded-full">
+                                <span class="text-base text-slate-900 flex-1">Buy groceries</span>
+                            </li>
+                            <li class="bg-white rounded-xl shadow-sm p-4 flex items-center gap-3 opacity-60">
+                                <input type="checkbox" class="checkbox-custom rounded-full" checked>
+                                <span class="text-base strikethrough flex-1">Reply to email</span>
+                            </li>
+                            <li class="bg-white rounded-xl shadow-sm p-4 flex items-center gap-3 hover:shadow-md transition-shadow">
+                                <input type="checkbox" class="checkbox-custom rounded-full">
+                                <span class="text-base text-slate-900 flex-1">Fix bike tire</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direction 5: Bold Accent -->
+            <div class="mockup-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-6 py-4">
+                    <h3 class="text-xl font-medium">Direction 5: Bold Accent</h3>
+                    <p class="text-sm text-indigo-100 mt-1">Prominent indigo header, clear visual hierarchy</p>
+                </div>
+                <div class="min-h-[500px]">
+                    <div class="bg-indigo-600 px-8 py-8">
+                        <div class="max-w-md mx-auto">
+                            <input type="text" placeholder="What needs to be done?" 
+                                   class="w-full px-4 py-3 text-base rounded-lg border-2 border-indigo-400 bg-indigo-500/30 text-white placeholder:text-indigo-200 outline-none focus:border-white transition-colors">
+                        </div>
+                    </div>
+                    <div class="p-8 bg-slate-50">
+                        <ul class="max-w-md mx-auto space-y-2">
+                            <li class="bg-white rounded-lg px-4 py-3 flex items-center gap-3 hover:bg-indigo-50 transition-colors">
+                                <input type="checkbox" class="checkbox-custom">
+                                <span class="text-base text-slate-900 flex-1">Buy groceries</span>
+                                <button class="text-slate-400 hover:text-red-600">✕</button>
+                            </li>
+                            <li class="bg-white rounded-lg px-4 py-3 flex items-center gap-3 opacity-60">
+                                <input type="checkbox" class="checkbox-custom" checked>
+                                <span class="text-base strikethrough flex-1">Reply to email</span>
+                                <button class="text-slate-400 hover:text-red-600">✕</button>
+                            </li>
+                            <li class="bg-white rounded-lg px-4 py-3 flex items-center gap-3 hover:bg-indigo-50 transition-colors">
+                                <input type="checkbox" class="checkbox-custom">
+                                <span class="text-base text-slate-900 flex-1">Fix bike tire</span>
+                                <button class="text-slate-400 hover:text-red-600">✕</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direction 6: Clean Lines -->
+            <div class="mockup-card bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="bg-slate-900 text-white px-6 py-4">
+                    <h3 class="text-xl font-medium">Direction 6: Clean Lines</h3>
+                    <p class="text-sm text-slate-400 mt-1">Stark, precise, with confident spacing</p>
+                </div>
+                <div class="p-8 bg-white min-h-[500px]">
+                    <div class="max-w-md mx-auto">
+                        <div class="mb-8">
+                            <input type="text" placeholder="What needs to be done?" 
+                                   class="w-full px-0 py-3 text-lg border-0 border-b-2 border-slate-900 outline-none placeholder:text-slate-400 focus:border-indigo-600 transition-colors">
+                        </div>
+                        
+                        <ul class="divide-y divide-slate-200">
+                            <li class="py-4 flex items-start gap-4 group">
+                                <input type="checkbox" class="checkbox-custom mt-1">
+                                <span class="text-base text-slate-900 flex-1 leading-relaxed">Buy groceries</span>
+                                <button class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-slate-900 transition-opacity">Delete</button>
+                            </li>
+                            <li class="py-4 flex items-start gap-4 group opacity-50">
+                                <input type="checkbox" class="checkbox-custom mt-1" checked>
+                                <span class="text-base strikethrough flex-1 leading-relaxed">Reply to email</span>
+                                <button class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-slate-900 transition-opacity">Delete</button>
+                            </li>
+                            <li class="py-4 flex items-start gap-4 group">
+                                <input type="checkbox" class="checkbox-custom mt-1">
+                                <span class="text-base text-slate-900 flex-1 leading-relaxed">Fix bike tire</span>
+                                <button class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-slate-900 transition-opacity">Delete</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Evaluation Guide -->
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-12">
+            <h2 class="text-2xl font-medium text-slate-900 mb-6">Evaluation Criteria</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-medium text-slate-900 mb-2">✓ Layout & Hierarchy</h3>
+                    <p class="text-sm text-slate-600">Which information hierarchy matches your priorities?</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-slate-900 mb-2">✓ Visual Density</h3>
+                    <p class="text-sm text-slate-600">Airy vs. compact — what feels right for your users?</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-slate-900 mb-2">✓ Interaction Style</h3>
+                    <p class="text-sm text-slate-600">Does it support your core "Type → Enter → See it" experience?</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-slate-900 mb-2">✓ Emotional Alignment</h3>
+                    <p class="text-sm text-slate-600">Does it evoke "calm competence" and restraint?</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-slate-900 mb-2">✓ Mobile Friendliness</h3>
+                    <p class="text-sm text-slate-600">Comfortable tap targets and thumb-reachable controls?</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-slate-900 mb-2">✓ Component Clarity</h3>
+                    <p class="text-sm text-slate-600">Are actions self-evident without explanation?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="max-w-2xl mx-auto text-center text-slate-600">
+            <p class="mb-4">
+                Each direction uses our established visual foundation (Slate/Indigo palette, system fonts, Tailwind) 
+                but creates a unique personality through layout, spacing, and component treatment.
+            </p>
+            <p class="text-sm text-slate-500">
+                Take your time exploring. You can choose one direction as-is, combine elements from multiple directions, 
+                or use one as a base and request modifications.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
