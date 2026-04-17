@@ -29,3 +29,7 @@ Thumbs.db
 
 # Node (if applicable later)
 node_modules/
+
+# Private task/reference documents
+*.doc
+.doc/
