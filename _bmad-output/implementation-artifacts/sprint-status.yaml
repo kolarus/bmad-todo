@@ -1,0 +1,99 @@
+# generated: 2026-04-20
+# last_updated: 2026-04-20
+# project: trainingnf
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: {project-root}/_bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-04-20
+last_updated: 2026-04-20
+project: trainingnf
+project_key: NOKEY
+tracking_system: file-system
+story_location: "{project-root}/_bmad-output/implementation-artifacts"
+
+development_status:
+  # Epic 1: Full-Stack Foundation & Development Environment
+  epic-1: backlog
+  1-1-initialize-nextjs-frontend-with-typescript-and-tailwind: backlog
+  1-2-initialize-express-backend-with-typescript-and-testing-setup: backlog
+  1-3-add-postgresql-database-with-prisma-orm-and-docker-compose: backlog
+  1-4-configure-cors-and-environment-variables-with-validation: backlog
+  1-5-create-production-dockerfiles-for-frontend-and-backend: backlog
+  1-6-configure-docker-compose-production-deployment: backlog
+  1-7-implement-health-check-endpoints-and-verify-full-stack-integration: backlog
+  epic-1-retrospective: optional
+  
+  # Epic 2: Core Todo Management with Persistence
+  epic-2: backlog
+  2-1-implement-zod-validation-schemas-for-todo-data: backlog
+  2-2-create-todo-service-layer-with-prisma-crud-operations-unit-tests: backlog
+  2-3-build-todo-rest-api-endpoints-with-integration-tests: backlog
+  2-4-create-react-context-for-global-todo-state-management: backlog
+  2-5-implement-optimistic-ui-pattern-with-rollback-logic: backlog
+  2-6-build-todoinput-component-with-validation-component-tests: backlog
+  2-7-build-todocard-component-with-toggle-and-delete-component-tests: backlog
+  2-8-build-todolist-component-with-empty-loading-states-component-tests: backlog
+  2-9-implement-error-boundary-and-toast-notification-system-tests: backlog
+  epic-2-retrospective: optional
+  
+  # Epic 3: Professional UX, Design System & Accessibility
+  epic-3: backlog
+  3-1-configure-tailwind-css-with-custom-design-tokens-and-color-palette: backlog
+  3-2-implement-card-based-design-pattern-for-all-components: backlog
+  3-3-create-custom-checkbox-component-with-indigo-styling: backlog
+  3-4-add-visual-states-empty-loading-error-with-proper-styling: backlog
+  3-5-implement-completed-todo-visual-distinction-opacity-strikethrough: backlog
+  3-6-add-smooth-animations-add-toggle-delete-hover: backlog
+  3-7-implement-responsive-design-with-mobile-first-approach: backlog
+  3-8-ensure-wcag-21-aa-compliance-keyboard-nav-aria-contrast: backlog
+  3-9-run-accessibility-audit-and-create-compliance-report: backlog
+  3-10-run-performance-testing-and-create-performance-report: backlog
+  epic-3-retrospective: optional
+  
+  # Epic 4: Comprehensive E2E Testing & QA Reports
+  epic-4: backlog
+  4-1-set-up-playwright-e2e-testing-infrastructure: backlog
+  4-2-create-e2e-test-happy-path-full-crud-cycle: backlog
+  4-3-create-e2e-test-data-persistence-across-sessions: backlog
+  4-4-create-e2e-test-empty-input-validation: backlog
+  4-5-create-e2e-test-error-recovery-flow: backlog
+  4-6-create-e2e-test-optimistic-ui-behavior: backlog
+  4-7-generate-test-coverage-report-target-70: backlog
+  4-8-conduct-security-review-and-create-report: backlog
+  4-9-create-comprehensive-qa-summary-report: backlog
+  epic-4-retrospective: optional
+  
+  # Continuous: Documentation & AI Integration Log
+  d-1-create-project-readme-with-setup-instructions: backlog
+  d-2-document-ai-integration-log-throughout-implementation: backlog
+  d-3-document-bmad-process-and-artifact-flow: backlog
