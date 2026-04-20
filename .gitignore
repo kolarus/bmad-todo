@@ -33,3 +33,10 @@ node_modules/
 # Private task/reference documents
 *.doc
 .doc/
+
+# ===========================================
+# Environment variables
+# ===========================================
+.env
+.env.local
+.env*.local

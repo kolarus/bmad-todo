@@ -43,14 +43,14 @@ story_location: "{project-root}/_bmad-output/implementation-artifacts"
 
 development_status:
   # Epic 1: Full-Stack Foundation & Development Environment
-  epic-1: backlog
-  1-1-initialize-nextjs-frontend-with-typescript-and-tailwind: backlog
-  1-2-initialize-express-backend-with-typescript-and-testing-setup: backlog
-  1-3-add-postgresql-database-with-prisma-orm-and-docker-compose: backlog
-  1-4-configure-cors-and-environment-variables-with-validation: backlog
-  1-5-create-production-dockerfiles-for-frontend-and-backend: backlog
-  1-6-configure-docker-compose-production-deployment: backlog
-  1-7-implement-health-check-endpoints-and-verify-full-stack-integration: backlog
+  epic-1: done
+  1-1-initialize-nextjs-frontend-with-typescript-and-tailw: done
+  1-2-initialize-express-backend-with-typescript-and-testing-setup: done
+  1-3-add-postgresql-database-with-prisma-orm-and-docker-compose: done
+  1-4-configure-cors-and-environment-variables-with-validation: done
+  1-5-create-production-dockerfiles-for-frontend-and-backend: done
+  1-6-configure-docker-compose-production-deployment: done
+  1-7-implement-health-check-endpoints-and-verify-full-stack-integration: done
   epic-1-retrospective: optional
   
   # Epic 2: Core Todo Management with Persistence
