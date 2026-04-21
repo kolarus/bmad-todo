@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-04-20
-last_updated: 2026-04-21T20:00:00
+last_updated: 2026-04-21T21:00:00
 project: trainingnf
 project_key: NOKEY
 tracking_system: file-system
@@ -91,7 +91,7 @@ development_status:
   4-7-generate-test-coverage-report-target-70: done
   4-8-conduct-security-review-and-create-report: done
   4-9-create-comprehensive-qa-summary-report: done
-  epic-4-retrospective: optional
+  epic-4-retrospective: done
   
   # Continuous: Documentation & AI Integration Log
   d-1-create-project-readme-with-setup-instructions: done
