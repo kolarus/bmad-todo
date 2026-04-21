@@ -1,5 +1,5 @@
 # generated: 2026-04-20
-# last_updated: 2026-04-20
+# last_updated: 2026-04-20T19:09:00
 # project: trainingnf
 # project_key: NOKEY
 # tracking_system: file-system
@@ -35,7 +35,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: 2026-04-20
-last_updated: 2026-04-20
+last_updated: 2026-04-20T20:00:00
 project: trainingnf
 project_key: NOKEY
 tracking_system: file-system
@@ -54,16 +54,16 @@ development_status:
   epic-1-retrospective: optional
   
   # Epic 2: Core Todo Management with Persistence
-  epic-2: backlog
-  2-1-implement-zod-validation-schemas-for-todo-data: backlog
-  2-2-create-todo-service-layer-with-prisma-crud-operations-unit-tests: backlog
-  2-3-build-todo-rest-api-endpoints-with-integration-tests: backlog
-  2-4-create-react-context-for-global-todo-state-management: backlog
-  2-5-implement-optimistic-ui-pattern-with-rollback-logic: backlog
-  2-6-build-todoinput-component-with-validation-component-tests: backlog
-  2-7-build-todocard-component-with-toggle-and-delete-component-tests: backlog
-  2-8-build-todolist-component-with-empty-loading-states-component-tests: backlog
-  2-9-implement-error-boundary-and-toast-notification-system-tests: backlog
+  epic-2: done
+  2-1-implement-zod-validation-schemas-for-todo-data: done
+  2-2-create-todo-service-layer-with-prisma-crud-operations-unit-tests: done
+  2-3-build-todo-rest-api-endpoints-with-integration-tests: done
+  2-4-create-react-context-for-global-todo-state-management: done
+  2-5-implement-optimistic-ui-pattern-with-rollback-logic: done
+  2-6-build-todoinput-component-with-validation-component-tests: done
+  2-7-build-todocard-component-with-toggle-and-delete-component-tests: done
+  2-8-build-todolist-component-with-empty-loading-states-component-tests: done
+  2-9-implement-error-boundary-and-toast-notification-system-tests: done
   epic-2-retrospective: optional
   
   # Epic 3: Professional UX, Design System & Accessibility

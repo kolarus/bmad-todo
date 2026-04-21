@@ -1,18 +1,12 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import { PrismaClient } from '@prisma/client';
-import { PrismaPg } from '@prisma/adapter-pg';
-import { Pool } from 'pg';
 import { env } from './config/env';
 import { corsOptions } from './middleware/cors';
+import { prisma } from './lib/prisma';
+import todoRouter from './routes/todo.routes';
+import { errorHandler } from './middleware/errorHandler';
 
 const app = express();
-
-// Initialize Prisma Client with adapter for Prisma 7.x
-const connectionString = env.DATABASE_URL;
-const pool = new Pool({ connectionString });
-const adapter = new PrismaPg(pool);
-const prisma = new PrismaClient({ adapter });
 
 // Middleware
 app.use(cors(corsOptions));
@@ -46,6 +40,12 @@ app.get('/api/health/db', async (req: Request, res: Response) => {
     });
   }
 });
+
+// Todo routes
+app.use('/api/todos', todoRouter);
+
+// Error handler (must be after all routes)
+app.use(errorHandler);
 
 // Graceful shutdown
 process.on('SIGTERM', async () => {
