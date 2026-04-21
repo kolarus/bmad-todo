@@ -34,6 +34,18 @@ export async function update(req: Request, res: Response, next: NextFunction) {
   }
 }
 
+export async function removeAll(req: Request, res: Response, next: NextFunction) {
+  try {
+    if (process.env.NODE_ENV === 'production') {
+      return res.status(403).json({ error: { message: 'Forbidden', code: 'FORBIDDEN', status: 403 } });
+    }
+    await todoService.deleteAll();
+    res.status(204).send();
+  } catch (err) {
+    next(err);
+  }
+}
+
 export async function remove(req: Request, res: Response, next: NextFunction) {
   try {
     const id = req.params.id as string;

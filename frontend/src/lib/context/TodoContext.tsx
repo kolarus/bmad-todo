@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { Todo } from '../types/todo';
 import * as api from '../api/todos';
+import { ApiError } from '../api/todos';
 
 interface TodoContextType {
   todos: Todo[];
@@ -51,7 +52,7 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
   }, [fetchTodos]);
 
   const addTodo = useCallback(async (text: string) => {
-    const tempId = `temp-${Date.now()}`;
+    const tempId = `temp-${crypto.randomUUID()}`;
     const tempTodo: Todo = {
       id: tempId,
       text,
@@ -76,11 +77,15 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
     setTodos(prev => prev.map(t => (t.id === id ? { ...t, completed: !t.completed } : t)));
     try {
       await api.updateTodo(id, { completed: !prevCompleted });
-    } catch {
-      setTodos(prev => prev.map(t => (t.id === id ? { ...t, completed: prevCompleted } : t)));
-      toastError("Couldn't update your todo. Check your connection.");
+    } catch (err) {
+      if (err instanceof ApiError && err.status === 404) {
+        await fetchTodos();
+      } else {
+        setTodos(prev => prev.map(t => (t.id === id ? { ...t, completed: prevCompleted } : t)));
+        toastError("Couldn't update your todo. Check your connection.");
+      }
     }
-  }, [todos, toastError]);
+  }, [todos, toastError, fetchTodos]);
 
   const deleteTodo = useCallback(async (id: string) => {
     const target = todos.find(t => t.id === id);
@@ -88,11 +93,15 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
     setTodos(prev => prev.filter(t => t.id !== id));
     try {
       await api.deleteTodo(id);
-    } catch {
-      setTodos(prev => [target, ...prev]);
-      toastError("Couldn't delete your todo. Check your connection.");
+    } catch (err) {
+      if (err instanceof ApiError && err.status === 404) {
+        await fetchTodos();
+      } else {
+        setTodos(prev => [target, ...prev]);
+        toastError("Couldn't delete your todo. Check your connection.");
+      }
     }
-  }, [todos, toastError]);
+  }, [todos, toastError, fetchTodos]);
 
   return (
     <TodoContext.Provider

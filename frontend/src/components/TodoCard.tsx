@@ -20,6 +20,7 @@ export function TodoCard({ todo }: TodoCardProps) {
 
   return (
     <div
+      data-testid="todo-item"
       className={[
         'flex items-center gap-3 bg-white rounded-lg border border-slate-200 p-4',
         'transition-all duration-300 hover:shadow-md',
@@ -31,15 +32,18 @@ export function TodoCard({ todo }: TodoCardProps) {
         checked={todo.completed}
         onChange={() => toggleTodo(todo.id)}
         aria-label={`Mark "${todo.text}" as ${todo.completed ? 'incomplete' : 'complete'}`}
+        data-testid="todo-checkbox"
       />
       <span
-        className={`flex-1 break-words text-slate-900 transition-all duration-150 ${todo.completed ? 'line-through' : ''}`}
+        data-testid="todo-text"
+        className={`flex-1 min-w-0 break-words text-slate-900 transition-all duration-150 ${todo.completed ? 'line-through' : ''}`}
       >
         {todo.text}
       </span>
       <button
         onClick={handleDelete}
         aria-label={`Delete ${todo.text}`}
+        data-testid="todo-delete"
         className="ml-auto flex-shrink-0 text-slate-400 hover:text-red-600 font-bold text-lg leading-none min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded"
       >
         ×

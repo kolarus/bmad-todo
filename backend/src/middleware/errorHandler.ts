@@ -6,7 +6,9 @@ export function errorHandler(
   res: Response,
   next: NextFunction
 ) {
-  console.error('Unhandled error:', err);
+  if (process.env.NODE_ENV !== 'test') {
+    console.error('Unhandled error:', err);
+  }
   res.status(500).json({
     error: {
       message: 'Internal server error',

@@ -82,4 +82,27 @@ describe('TodoCard', () => {
     const text = screen.getByText('Buy groceries');
     expect(text).not.toHaveClass('line-through');
   });
+
+  it('should have min-w-0 and break-words on text span to prevent flex overflow', () => {
+    render(<TodoCard todo={mockTodo} />);
+    const text = screen.getByText('Buy groceries');
+    expect(text).toHaveClass('min-w-0');
+    expect(text).toHaveClass('break-words');
+  });
+
+  it('should render long unbreakable text without truncation', () => {
+    const longText = 'a'.repeat(500);
+    render(<TodoCard todo={{ ...mockTodo, text: longText }} />);
+    expect(screen.getByText(longText)).toBeInTheDocument();
+  });
+
+  it('should render text with special HTML characters safely', () => {
+    render(<TodoCard todo={{ ...mockTodo, text: '<script>alert("xss")</script>' }} />);
+    expect(screen.getByText('<script>alert("xss")</script>')).toBeInTheDocument();
+  });
+
+  it('should render todo text containing emoji', () => {
+    render(<TodoCard todo={{ ...mockTodo, text: 'Buy milk 🥛 and eggs 🥚' }} />);
+    expect(screen.getByText('Buy milk 🥛 and eggs 🥚')).toBeInTheDocument();
+  });
 });

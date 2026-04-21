@@ -8,7 +8,7 @@ export function TodoList() {
 
   if (isLoading) {
     return (
-      <div role="status" aria-live="polite" className="flex flex-col items-center py-12 gap-3">
+      <div data-testid="loading-state" role="status" aria-live="polite" className="flex flex-col items-center py-12 gap-3">
         <svg
           className="animate-spin h-8 w-8 text-indigo-500"
           viewBox="0 0 24 24"
@@ -25,11 +25,12 @@ export function TodoList() {
 
   if (error) {
     return (
-      <div role="alert" className="flex flex-col items-center text-center py-12 gap-4">
+      <div data-testid="error-state" role="alert" className="flex flex-col items-center text-center py-12 gap-4">
         <p className="text-red-600 font-medium">Couldn&apos;t load your todos</p>
         <p className="text-slate-500 text-sm">Check your connection</p>
         <button
           onClick={refetchTodos}
+          data-testid="retry-button"
           className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2"
         >
           Retry
@@ -40,7 +41,7 @@ export function TodoList() {
 
   if (todos.length === 0) {
     return (
-      <p className="text-center text-slate-500 text-lg py-12">
+      <p data-testid="empty-state" className="text-center text-slate-500 text-lg py-12">
         No todos yet. Ready when you are!
       </p>
     );

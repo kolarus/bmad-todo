@@ -15,8 +15,8 @@ export function TodoInput() {
   const handleSubmit = async () => {
     const trimmed = value.trim();
     if (!trimmed) return;
-    await addTodo(trimmed);
     setValue('');
+    await addTodo(trimmed);
     inputRef.current?.focus();
   };
 
@@ -38,6 +38,7 @@ export function TodoInput() {
         maxLength={500}
         className="w-full outline-none text-base text-slate-900 bg-transparent placeholder-slate-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded"
         aria-label="New todo text"
+        data-testid="todo-input"
       />
     </div>
   );

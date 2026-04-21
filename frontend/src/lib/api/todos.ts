@@ -2,10 +2,17 @@ import { Todo } from '../types/todo';
 
 const getBaseUrl = () => process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001';
 
+export class ApiError extends Error {
+  constructor(message: string, public readonly status: number) {
+    super(message);
+    this.name = 'ApiError';
+  }
+}
+
 async function handleResponse<T>(res: Response): Promise<T> {
   if (!res.ok) {
     const body = await res.json().catch(() => null);
-    throw new Error(body?.error?.message ?? `Request failed with status ${res.status}`);
+    throw new ApiError(body?.error?.message ?? `Request failed with status ${res.status}`, res.status);
   }
   return res.json() as Promise<T>;
 }
@@ -39,6 +46,6 @@ export async function deleteTodo(id: string): Promise<void> {
   });
   if (!res.ok) {
     const body = await res.json().catch(() => null);
-    throw new Error(body?.error?.message ?? `Delete failed with status ${res.status}`);
+    throw new ApiError(body?.error?.message ?? `Delete failed with status ${res.status}`, res.status);
   }
 }

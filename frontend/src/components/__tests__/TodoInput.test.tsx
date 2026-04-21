@@ -58,4 +58,37 @@ describe('TodoInput', () => {
     await user.keyboard('{Enter}');
     expect(input).toHaveValue('');
   });
+
+  it('should trim leading and trailing whitespace before calling addTodo', async () => {
+    const user = userEvent.setup();
+    render(<TodoInput />);
+    const input = screen.getByRole('textbox');
+    await user.type(input, '  Buy groceries  ');
+    await user.keyboard('{Enter}');
+    expect(mockAddTodo).toHaveBeenCalledWith('Buy groceries');
+  });
+
+  it('should NOT call addTodo when input is only spaces and tabs', async () => {
+    const user = userEvent.setup();
+    render(<TodoInput />);
+    const input = screen.getByRole('textbox');
+    await user.type(input, '     ');
+    await user.keyboard('{Enter}');
+    expect(mockAddTodo).not.toHaveBeenCalled();
+  });
+
+  it('should enforce maxLength of 500 characters', () => {
+    render(<TodoInput />);
+    const input = screen.getByRole('textbox');
+    expect(input).toHaveAttribute('maxLength', '500');
+  });
+
+  it('should preserve internal whitespace in todo text', async () => {
+    const user = userEvent.setup();
+    render(<TodoInput />);
+    const input = screen.getByRole('textbox');
+    await user.type(input, 'Buy milk  and  eggs');
+    await user.keyboard('{Enter}');
+    expect(mockAddTodo).toHaveBeenCalledWith('Buy milk  and  eggs');
+  });
 });

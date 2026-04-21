@@ -4,9 +4,10 @@ interface CheckboxProps {
   checked: boolean;
   onChange: () => void;
   'aria-label': string;
+  'data-testid'?: string;
 }
 
-export function Checkbox({ checked, onChange, 'aria-label': ariaLabel }: CheckboxProps) {
+export function Checkbox({ checked, onChange, 'aria-label': ariaLabel, 'data-testid': testId }: CheckboxProps) {
   return (
     <label className="relative flex items-center justify-center cursor-pointer min-w-[44px] min-h-[44px]">
       <input
@@ -15,6 +16,7 @@ export function Checkbox({ checked, onChange, 'aria-label': ariaLabel }: Checkbo
         onChange={onChange}
         aria-label={ariaLabel}
         className="sr-only peer"
+        data-testid={testId}
       />
       <span
         aria-hidden="true"

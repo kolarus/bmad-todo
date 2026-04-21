@@ -29,6 +29,10 @@ export class TodoService {
     }
   }
 
+  async deleteAll() {
+    return prisma.todo.deleteMany({});
+  }
+
   async delete(id: string) {
     try {
       return await prisma.todo.delete({
