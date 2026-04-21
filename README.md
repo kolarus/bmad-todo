@@ -1,6 +1,15 @@
 # trainingnf — Todo Application
 
-A full-stack todo application built with Next.js 16, Express 5, PostgreSQL 16, and Docker, developed using the BMAD methodology.
+A full-stack todo application built as a BMAD methodology training project. Implements a complete spec-driven development workflow: Product Brief → PRD → UX Design → Architecture → Epics/Stories → Implementation.
+
+## Key Features
+
+- **Full CRUD** — create, toggle complete, and delete todos
+- **Real-time persistence** — all todos stored in PostgreSQL, survive page refresh
+- **Optimistic UI** — instant feedback with automatic rollback on API errors
+- **Accessible** — WCAG 2.1 AA compliant, full keyboard navigation, ARIA labels
+- **Responsive** — mobile-first design that works at all screen sizes
+- **Production-ready** — Dockerized with health checks and environment validation
 
 ## Tech Stack
 
@@ -10,7 +19,7 @@ A full-stack todo application built with Next.js 16, Express 5, PostgreSQL 16, a
 | Backend | Express 5, Node.js 20, TypeScript, Prisma 7 (ORM) |
 | Database | PostgreSQL 16 |
 | Containerization | Docker, Docker Compose |
-| Testing | Vitest (backend), Supertest (API integration) |
+| Testing | Jest + React Testing Library (frontend), Vitest + Supertest (backend), Playwright (E2E) |
 
 ---
 
@@ -78,6 +87,12 @@ npm run dev
 
 ## Running Tests
 
+### All tests (from root)
+
+```bash
+npm test
+```
+
 ### Backend unit + integration tests
 
 ```bash
@@ -85,10 +100,48 @@ cd backend
 npm test
 ```
 
-Or from root:
+With coverage:
 
 ```bash
+cd backend
+npm run test:coverage
+```
+
+### Frontend component tests
+
+```bash
+cd frontend
 npm test
+```
+
+With coverage:
+
+```bash
+cd frontend
+npm run test:coverage
+```
+
+### E2E tests (requires running app)
+
+Start the app first (`npm run dev` from root), then:
+
+```bash
+cd e2e
+npm test
+```
+
+Run with visible browser:
+
+```bash
+cd e2e
+npm run test:headed
+```
+
+View HTML report:
+
+```bash
+cd e2e
+npm run test:report
 ```
 
 ---
@@ -154,6 +207,22 @@ trainingnf/
 │   ├── prisma/        # Database schema + migrations
 │   └── Dockerfile
 │
+├── e2e/               # Playwright end-to-end tests
+│   └── tests/
+│
+├── docs/              # QA and process reports
+│   ├── accessibility-report.md
+│   ├── performance-report.md
+│   ├── security-review-report.md
+│   ├── test-coverage-report.md
+│   ├── qa-summary-report.md
+│   ├── ai-integration-log.md
+│   └── bmad-process-documentation.md
+│
+├── _bmad-output/      # BMAD planning and implementation artifacts
+│   ├── planning-artifacts/   # PRD, architecture, UX specs, epics
+│   └── implementation-artifacts/  # Story files, sprint status
+│
 ├── docker-compose.yml          # Development (PostgreSQL only)
 ├── docker-compose.prod.yml     # Production (all services)
 └── README.md
@@ -212,3 +281,19 @@ NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
 
 For production Docker Compose, this is injected via `docker-compose.prod.yml` environment variables.
+
+---
+
+## Additional Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Accessibility Report](docs/accessibility-report.md) | WCAG 2.1 AA compliance audit results |
+| [Performance Report](docs/performance-report.md) | Lighthouse scores and bundle size analysis |
+| [Security Review](docs/security-review-report.md) | XSS, SQL injection, CORS, and dependency audit |
+| [Test Coverage Report](docs/test-coverage-report.md) | Coverage metrics for unit and integration tests |
+| [QA Summary Report](docs/qa-summary-report.md) | Comprehensive QA sign-off and production readiness |
+| [AI Integration Log](docs/ai-integration-log.md) | How AI tools were used throughout development |
+| [BMAD Process Documentation](docs/bmad-process-documentation.md) | How BMAD guided the full development lifecycle |
+
+BMAD planning artifacts (PRD, architecture, UX specs, epics, stories) are in [`_bmad-output/`](_bmad-output/).
