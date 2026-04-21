@@ -453,3 +453,17 @@ Claude Sonnet 4.5 (via subagent)
 **Status:** done  
 **Last Updated:** 2026-04-20  
 **Completed by:** Claude Sonnet 4.5
+
+## QA Gate
+
+> **Definition of Done requires E2E verification.** The database layer implemented here underpins data persistence across sessions. This story is not considered fully **done** until Story 4-3 reaches `done` status.
+
+### E2E Scenario: Data Persists Across Browser Sessions
+
+**Linked Implementation:** Story 4-3 — E2E Test: Data Persistence Across Sessions
+
+**Scenario:**
+- **GIVEN** the user has added at least one todo to the list in a running browser session
+- **WHEN** the user performs a full page reload (F5 / browser refresh)
+- **THEN** all previously added todos are still displayed in the list
+- **AND** each todo's completion status is preserved exactly as it was before the reload

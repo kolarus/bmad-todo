@@ -112,6 +112,31 @@ jest.mock('../../lib/context/TodoContext', () => ({
 - Story 2.1 validation: `frontend/src/lib/validation/todo.ts`
 - Epic UX-DR3: [Source: _bmad-output/planning-artifacts/epics.md]
 
+## QA Gate
+
+> **Definition of Done requires E2E verification.** The create and silent-rejection behaviours of this component must be verified through real browser interactions. This story is not considered fully **done** until Stories **4-2** and **4-4** both reach `done` status.
+
+### E2E Scenario 1: User Creates a Todo via Input
+
+**Linked Implementation:** Story 4-2 — E2E Test: Happy Path Full CRUD Cycle
+
+**Scenario:**
+- **GIVEN** the app is open and the TodoInput field is auto-focused
+- **WHEN** the user types "Buy groceries" and presses Enter
+- **THEN** the todo "Buy groceries" appears in the todo list
+- **AND** the input field is cleared and refocused, ready for the next entry
+
+### E2E Scenario 2: Empty Input Is Silently Rejected
+
+**Linked Implementation:** Story 4-4 — E2E Test: Empty Input Validation
+
+**Scenario:**
+- **GIVEN** the TodoInput field is empty or contains only whitespace
+- **WHEN** the user presses Enter
+- **THEN** no todo is added to the list
+- **AND** no error message or alert is shown
+- **AND** the input field remains focused
+
 ## Dev Agent Record
 
 ### Agent Model Used

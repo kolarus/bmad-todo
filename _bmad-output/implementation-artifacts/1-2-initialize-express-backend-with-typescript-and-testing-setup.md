@@ -482,3 +482,17 @@ Claude Sonnet 4.5
 **Status:** done  
 **Last Updated:** 2026-04-20  
 **Completed by:** Claude Sonnet 4.5
+
+## QA Gate
+
+> **Definition of Done requires E2E verification.** The testing infrastructure initialized in this story must also support E2E test execution. This story is not considered fully **done** until Story 4-1 reaches `done` status.
+
+### E2E Scenario: Playwright Infrastructure Can Execute Against Running App
+
+**Linked Implementation:** Story 4-1 — Set Up Playwright E2E Testing Infrastructure
+
+**Scenario:**
+- **GIVEN** the full-stack application is running via Docker Compose
+- **WHEN** Playwright is installed and configured with a base URL of `http://localhost:3000`
+- **THEN** a smoke test can load the app and confirm the page title renders
+- **AND** all E2E tests can be executed via a single `npm run test:e2e` command from the project root

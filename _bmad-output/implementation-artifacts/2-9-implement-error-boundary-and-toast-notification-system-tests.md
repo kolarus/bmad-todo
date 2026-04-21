@@ -137,6 +137,22 @@ export default function Home() {
 - Architecture error handling: [Source: _bmad-output/planning-artifacts/architecture.md#Error Handling]
 - Epic AC 2.9: [Source: _bmad-output/planning-artifacts/epics.md#Story 2.9]
 
+## QA Gate
+
+> **Definition of Done requires E2E verification.** The error toast must be verifiable in a real browser under simulated failure conditions. This story is not considered fully **done** until Story 4-5 reaches `done` status.
+
+### E2E Scenario: Error Toast Appears and Auto-Dismisses on Operation Failure
+
+**Linked Implementation:** Story 4-5 — E2E Test: Error Recovery Flow
+
+**Scenario:**
+- **GIVEN** the backend is unavailable or returns an error
+- **WHEN** the user performs a todo operation (create, toggle, or delete)
+- **THEN** an error toast notification appears in the bottom-right corner
+- **AND** the toast contains a specific, actionable message (not a generic "Error occurred")
+- **AND** the toast auto-dismisses after 5 seconds
+- **AND** the todo list rolls back to its state before the failed operation
+
 ## Dev Agent Record
 
 ### Agent Model Used

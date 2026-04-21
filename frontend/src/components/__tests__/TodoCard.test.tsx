@@ -50,10 +50,13 @@ describe('TodoCard', () => {
   });
 
   it('should call deleteTodo with todo id on delete button click', async () => {
-    const user = userEvent.setup();
+    jest.useFakeTimers();
+    const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
     render(<TodoCard todo={mockTodo} />);
     await user.click(screen.getByRole('button', { name: /delete buy groceries/i }));
+    jest.runAllTimers();
     expect(mockDeleteTodo).toHaveBeenCalledWith('todo-1');
+    jest.useRealTimers();
   });
 
   it('should have correct aria-label on delete button', () => {
@@ -67,10 +70,11 @@ describe('TodoCard', () => {
     expect(text).toHaveClass('line-through');
   });
 
-  it('should show opacity-60 for completed todo', () => {
+  it('should show opacity-60 on card wrapper for completed todo', () => {
     render(<TodoCard todo={{ ...mockTodo, completed: true }} />);
-    const text = screen.getByText('Buy groceries');
-    expect(text).toHaveClass('opacity-60');
+    // opacity-60 is applied to the card wrapper, not the text span
+    const card = screen.getByText('Buy groceries').closest('div[class*="flex"]');
+    expect(card).toHaveClass('opacity-60');
   });
 
   it('should NOT show line-through for incomplete todo', () => {

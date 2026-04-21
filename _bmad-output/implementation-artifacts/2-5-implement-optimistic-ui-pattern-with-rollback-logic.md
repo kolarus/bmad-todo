@@ -104,6 +104,33 @@ const mockCreate = jest.fn().mockResolvedValue(serverTodo);
 - Architecture optimistic UI: [Source: _bmad-output/planning-artifacts/architecture.md#State Management]
 - Epic UX-DR18-20: [Source: _bmad-output/planning-artifacts/epics.md#UX-DR Coverage]
 
+## QA Gate
+
+> **Definition of Done requires E2E verification.** Both the optimistic update behaviour and the rollback/error-recovery logic must be verified in a real browser. This story is not considered fully **done** until Stories **4-5** and **4-6** both reach `done` status.
+
+### E2E Scenario 1: Optimistic UI — Todo Appears Before API Confirms
+
+**Linked Implementation:** Story 4-6 — E2E Test: Optimistic UI Behavior
+
+**Scenario:**
+- **GIVEN** the app is open and the network is responsive
+- **WHEN** the user submits a new todo
+- **THEN** the todo appears in the UI immediately (before the API response is received)
+- **AND** after the API confirms creation, the todo remains in the list with a server-assigned ID
+
+### E2E Scenario 2: Error Recovery — Rollback and Toast on Failure
+
+**Linked Implementation:** Story 4-5 — E2E Test: Error Recovery Flow
+
+**Scenario:**
+- **GIVEN** the backend is unavailable (simulated via network block or server stop)
+- **WHEN** the user attempts to add, toggle, or delete a todo
+- **THEN** the operation appears to succeed momentarily (optimistic update)
+- **AND** the UI rolls back to its previous state when the API call fails
+- **AND** an error toast is displayed with a specific, actionable message
+- **WHEN** the backend is restored and the user retries the operation
+- **THEN** the operation succeeds and the todo list reflects the correct state
+
 ## Dev Agent Record
 
 ### Agent Model Used

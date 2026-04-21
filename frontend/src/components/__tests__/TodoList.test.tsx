@@ -45,7 +45,7 @@ describe('TodoList', () => {
     mockContextValue = { todos: [], isLoading: false, error: "Couldn't load todos", refetchTodos: mockRefetchTodos };
     render(<TodoList />);
     expect(screen.getByRole('alert')).toBeInTheDocument();
-    expect(screen.getByText("Couldn't load todos")).toBeInTheDocument();
+    expect(screen.getByText(/couldn't load your todos/i)).toBeInTheDocument();
   });
 
   it('should call refetchTodos when retry button is clicked', async () => {

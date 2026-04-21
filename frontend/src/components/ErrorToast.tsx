@@ -20,7 +20,7 @@ export function ErrorToast() {
     <div
       role="alert"
       aria-live="assertive"
-      className="fixed bottom-4 right-4 z-50 max-w-sm bg-red-600 text-white px-4 py-3 rounded-lg shadow-lg"
+      className="fixed bottom-4 right-4 z-50 max-w-sm bg-red-50 border-l-4 border-red-600 text-red-800 px-4 py-3 rounded-lg shadow-lg"
     >
       <p className="text-sm font-medium">{toastMessage}</p>
     </div>

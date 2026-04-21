@@ -66,6 +66,21 @@ cd frontend && npm install zod
 - Story AC: [Source: _bmad-output/planning-artifacts/epics.md#Story 2.1]
 - Backend Zod env example: [Source: backend/src/config/env.ts]
 
+## QA Gate
+
+> **Definition of Done requires E2E verification.** The validation schemas defined here must be verifiable through real browser interactions. This story is not considered fully **done** until Story 4-4 reaches `done` status.
+
+### E2E Scenario: Empty Input Is Silently Rejected in the Browser
+
+**Linked Implementation:** Story 4-4 — E2E Test: Empty Input Validation
+
+**Scenario:**
+- **GIVEN** the user opens the app and the TodoInput field is focused
+- **WHEN** the user presses Enter with an empty string or whitespace-only text
+- **THEN** no new todo is added to the list
+- **AND** no error message or alert is shown (silent prevention per UX-DR3)
+- **AND** the input field remains focused and ready for valid input
+
 ## Dev Agent Record
 
 ### Agent Model Used

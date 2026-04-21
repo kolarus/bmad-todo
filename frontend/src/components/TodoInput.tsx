@@ -36,7 +36,7 @@ export function TodoInput() {
         onKeyDown={handleKeyDown}
         placeholder="What needs to be done?"
         maxLength={500}
-        className="w-full outline-none text-slate-900 bg-transparent placeholder-slate-400"
+        className="w-full outline-none text-base text-slate-900 bg-transparent placeholder-slate-400 focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 rounded"
         aria-label="New todo text"
       />
     </div>

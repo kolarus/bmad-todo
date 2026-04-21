@@ -104,6 +104,24 @@ Express 5 automatically propagates promise rejections from route handlers to the
 - Architecture API format: [Source: _bmad-output/planning-artifacts/architecture.md#API & Communication Patterns]
 - Existing test pattern: [Source: backend/tests/health.test.ts]
 
+## QA Gate
+
+> **Definition of Done requires E2E verification.** All four API endpoints must be exercised end-to-end through a real browser. This story is not considered fully **done** until Story 4-2 reaches `done` status.
+
+### E2E Scenario: Full CRUD Cycle Through the Browser (Happy Path)
+
+**Linked Implementation:** Story 4-2 — E2E Test: Happy Path Full CRUD Cycle
+
+**Scenario:**
+- **GIVEN** the app is open in a browser and the todo list is visible
+- **WHEN** the user types "Buy groceries" and presses Enter → triggers `POST /api/todos`
+- **THEN** the new todo appears immediately in the list
+- **WHEN** the user clicks the checkbox on that todo → triggers `PATCH /api/todos/:id`
+- **THEN** the todo is visually marked as completed (strikethrough + reduced opacity)
+- **WHEN** the user clicks the delete (×) button → triggers `DELETE /api/todos/:id`
+- **THEN** the todo is removed from the list
+- **AND** a subsequent page reload shows the correct empty or remaining state → `GET /api/todos`
+
 ## Dev Agent Record
 
 ### Agent Model Used

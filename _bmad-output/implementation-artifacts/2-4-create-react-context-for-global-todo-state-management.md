@@ -114,6 +114,21 @@ In tests, `process.env.NEXT_PUBLIC_API_URL` is undefined. Mock the API module to
 - Todo type: derived from Prisma schema [Source: backend/prisma/schema.prisma]
 - Story AC: [Source: _bmad-output/planning-artifacts/epics.md#Story 2.4]
 
+## QA Gate
+
+> **Definition of Done requires E2E verification.** The context's fetch-on-mount behaviour must be verified by the persistence scenario in a real browser. This story is not considered fully **done** until Story 4-3 reaches `done` status.
+
+### E2E Scenario: Context Rehydrates State on Page Load
+
+**Linked Implementation:** Story 4-3 — E2E Test: Data Persistence Across Sessions
+
+**Scenario:**
+- **GIVEN** one or more todos exist in the database
+- **WHEN** the user navigates to the app or performs a full page reload
+- **THEN** the TodoContext fetches todos from the API on mount
+- **AND** the full todo list is displayed without any user interaction
+- **AND** loading and error states are not incorrectly shown when the API responds successfully
+
 ## Dev Agent Record
 
 ### Agent Model Used

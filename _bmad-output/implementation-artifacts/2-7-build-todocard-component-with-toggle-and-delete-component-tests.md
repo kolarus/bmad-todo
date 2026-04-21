@@ -65,6 +65,22 @@ interface TodoCardProps { todo: Todo; }
 - `frontend/src/lib/types/todo.ts` — Todo type
 - Epic UX-DR4-5: [Source: _bmad-output/planning-artifacts/epics.md]
 
+## QA Gate
+
+> **Definition of Done requires E2E verification.** The toggle and delete interactions on this component are critical steps in the full CRUD cycle. This story is not considered fully **done** until Story 4-2 reaches `done` status.
+
+### E2E Scenario: Toggle Completion and Delete a Todo in the Browser
+
+**Linked Implementation:** Story 4-2 — E2E Test: Happy Path Full CRUD Cycle
+
+**Scenario:**
+- **GIVEN** at least one todo exists in the list
+- **WHEN** the user clicks the checkbox on an active todo
+- **THEN** the todo displays a strikethrough on its text and reduced opacity
+- **AND** clicking the checkbox again restores the todo to active appearance
+- **WHEN** the user clicks the delete (×) button on a todo
+- **THEN** the todo is immediately removed from the list
+
 ## Dev Agent Record
 
 ### Agent Model Used
